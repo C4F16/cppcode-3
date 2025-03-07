@@ -1,0 +1,414 @@
+#21
+#include <iostream>
+
+using namespace std;
+
+void PrintFibonacciUsingLoop(int Number)
+{
+	int FebNum = 0;
+	int Prev2 = 0, Prev1 = 1;
+
+	cout << "1 ";
+
+	for (int i = 2; i <= Number; ++i)
+	{
+		FebNum = Prev1 + Prev2;
+		cout << FebNum << " ";
+		Prev2 = Prev1;
+		Prev1 = FebNum;
+	}
+}
+int main()
+{
+	PrintFibonacciUsingLoop(10);
+
+ return 0 ; 
+}
+--------------------------------------
+
+#22
+#include <iostream>
+
+using namespace std;
+
+void PrintFibonacciUsingRecurssion(int Number, int Prev1, int Prev2)
+{
+	int FebNum = 0;
+	if (Number > 0)
+	{
+		FebNum = Prev2 + Prev1;
+  
+		Prev2 = Prev1;
+  
+		Prev1 = FebNum;
+  
+		cout << FebNum << " ";
+  
+		PrintFibonacciUsingRecurssion(Number - 1, Prev1, Prev2);
+	}
+}
+int main()
+{
+	PrintFibonacciUsingRecurssion(10, 0, 1);
+
+	return 0;
+}
+****************************************
+#23
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string St1;
+	cout << "enter Your String"<<endl;
+	getline(cin, St1);
+	return St1;
+}
+void PrintFirstLetterOfEachWord(string St1)
+{
+	bool isFirstLetter = true;
+	cout << "first letters of this string : "<<endl;
+	for (short i = 0; i < St1.length(); i++)
+	{
+		if (St1[i] != ' ' && isFirstLetter)
+		{
+			cout << St1[i] << endl;
+		}
+		isFirstLetter = (St1[i] == ' ' ? true : false);
+	}
+}
+int main()
+{
+	PrintFirstLetterOfEachWord(ReadString());
+
+	return 0;
+}
+
+********************************
+#24
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string St1;
+	cout << "enter Your String"<<endl;
+	getline(cin, St1);
+	return St1;
+}
+string UpperFirstLetterOfEachWord(string st1)
+{
+	bool isfirstLetter = true;
+
+	for (short i = 0; i < st1.length(); i++)
+	{
+		if (st1[i] != ' ' && isfirstLetter)
+		{
+			st1[i] = toupper(st1[i]);
+		}
+		isfirstLetter = (st1[i] == ' ' ? true : false);
+	}
+	return st1;
+}
+int main()
+{
+	string st1 = ReadString();
+
+	cout << "string after conversion : " << endl;
+
+	st1 = UpperFirstLetterOfEachWord(st1);
+
+	cout << st1 << endl;
+
+	return 0;
+}
+
+******************************
+#25
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string St1;
+	cout << "enter Your String"<<endl;
+	getline(cin, St1);
+	return St1;
+}
+string LowerFirstLetterOfEachWord(string st1)
+{
+	bool isfirstLetter = true;
+
+	for (short i = 0; i < st1.length(); i++)
+	{
+		if (st1[i] != ' ' && isfirstLetter)
+		{
+			st1[i] = tolower(st1[i]);
+		}
+		isfirstLetter = (st1[i] == ' ' ? true : false);
+	}
+	return st1;
+}
+int main()
+{
+	string st1 = ReadString();
+
+	cout << "string after conversion : " << endl;
+
+	st1 = LowerFirstLetterOfEachWord(st1);
+
+	cout << st1 << endl;
+
+	return 0;
+}
+
+*********************************
+#26
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string St1;
+	cout << "enter Your String"<<endl;
+	getline(cin, St1);
+	return St1;
+}
+string LowerString(string st1)
+{
+	bool isfirstLetter = true;
+
+	for (short i = 0; i < st1.length(); i++)
+	{
+		if (st1[i] != ' ' && isfirstLetter)
+		{
+			st1[i] = tolower(st1[i]);
+		}
+	}
+	return st1;
+}
+string UpperString(string st1)
+{
+	bool isfirstLetter = true;
+
+	for (short i = 0; i < st1.length(); i++)
+	{
+		if (st1[i] != ' ' && isfirstLetter)
+		{
+			st1[i] = toupper(st1[i]);
+		}
+	}
+	return st1;
+}
+int main()
+{
+	string st1 = ReadString();
+
+	cout << "string after upper : " << endl;
+	st1 = UpperString(st1);
+	cout << st1 << endl;
+
+	cout << "string after lower : " << endl;
+	st1 = LowerString(st1);
+	cout << st1 << endl;
+
+
+	return 0;
+}
+
+********************************
+#27
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+char ReadChar()
+{
+	char ch1;
+	cout << "enter a Character "<<endl;
+	cin >> ch1;
+	return ch1;
+}
+char InverterLetterCase(char ch1)
+{
+	return isupper(ch1) ? tolower(ch1) : toupper(ch1);
+}
+int main()
+{
+	char ch1 = ReadChar();
+
+	cout << "char after inverting case : " << endl;
+
+	ch1 = InverterLetterCase(ch1);
+
+	cout << ch1 << endl;
+
+	return 0;
+}
+
+********************************
+#28
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string st1;
+	cout << "enter a string "<<endl;
+	getline(cin, st1);
+	return st1;
+}
+char InverterLetterCase(char ch1)
+{
+	return isupper(ch1) ? tolower(ch1) : toupper(ch1);
+}
+string InverterAllStringLetterCase(string st1)
+{
+	for (short i = 0; i < st1.length(); i++)
+	{
+		st1[i] = InverterLetterCase(st1[i]);
+	}
+	return st1;
+}
+int main()
+{
+	string st1 = ReadString();
+
+	cout << "string after inverting case : " << endl;
+
+	st1 = InverterAllStringLetterCase(st1);
+
+	cout << st1 << endl;
+
+	return 0;
+}
+
+********************************
+#29
+#include <iostream>
+#include <string>
+
+using namespace std;
+enum encount
+{small=1 ,capital=2,all=3};
+string ReadString()
+{
+	string st1;
+	cout << "enter a string "<<endl;
+	getline(cin, st1);
+	return st1;
+}
+int CountLetter(string st1, encount Count = encount::all)
+{
+	if (Count == encount::all)
+	{
+		return st1.length();
+	}
+
+	int Counter = 0;
+
+	for (int i = 0; i < st1.length(); i++)
+	{
+		if (Count == encount::capital && isupper(st1[i]))
+			Counter++;
+		if (Count == encount::small && islower(st1[i]))
+			Counter++;
+	}
+	return Counter;
+}
+int CountCapitalLetter(string st1)
+{
+	int Counter = 0;
+
+	for (int i = 0; i < st1.length(); i++)
+	{
+		if (isupper(st1[i]))
+			Counter++;
+	}
+	return Counter;
+}
+int CountSmallLetters(string st1)
+{
+	int Count = 0;
+
+	for (int i = 0; i < st1.length(); i++)
+	{
+		if (islower(st1[i]))
+
+			Count++;
+	}
+	return Count;
+}
+
+int main()
+{
+	string st1 = ReadString();
+
+	cout << "string length : "<<st1.length() << endl;
+
+	cout << "capital latter : " << CountCapitalLetter(st1) << endl;
+
+	cout << "small latter  : " << CountSmallLetters(st1) << endl;
+
+
+
+	return 0;
+}
+
+********************************
+#30
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string st1;
+	cout << "enter a string "<<endl;
+	getline(cin, st1);
+	return st1;
+}
+char ReadChar() {
+	char ch;
+	cout << "enter character to Count" << endl;
+	cin >> ch;
+	return ch;
+}
+int CountLetter(string st1, char ch)
+{
+	
+	int Count = 0;
+
+	for (int i = 0; i < st1.length(); i++)
+	{
+		if (st1[i] == ch)
+			Count++;
+	}
+	return Count;
+}
+
+int main()
+{
+	string st1 = ReadString();
+
+	char ch = ReadChar();
+
+	cout << "latter " << ch << " Count = " << CountLetter(st1, ch) << endl;
+
+
+
+	return 0;
+}

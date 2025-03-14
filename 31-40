@@ -1,1 +1,399 @@
+#31
+#include <iostream>
+#include <string>
 
+using namespace std;
+
+string ReadString()
+{
+	string st1;
+	cout << "enter ur string "<<endl;
+	getline(cin, st1);
+	return st1;
+}
+char ReadChar()
+{
+	char ch1;
+	cout << "\nPlease Enter a Character?\n";
+	cin >> ch1;
+	return ch1;
+}
+char InvertLetterCase(char ch1)
+{
+	return isupper(ch1) ? tolower(ch1) : toupper(ch1);
+}
+int CountLetter(string st1, char Letter, bool MatchCase = true)
+{
+	int Counter = 0;
+	for (int i = 0; i < st1.length(); i++)
+	{
+		if (MatchCase)
+		{
+			if (st1[i] == Letter)
+				Counter++;
+		}
+		else
+		{
+			if (tolower(st1[i]) == tolower(Letter))
+				Counter++;
+		}
+	}
+	return Counter;
+}
+int main()
+{
+	string st1 = ReadString();
+	char ch1 = ReadChar();
+	cout << "\nletter \'" << ch1 << "\' Count = " <<CountLetter(st1, ch1);
+	cout << "\nletter \'" << ch1 << "\' ";
+	cout << "Or \'" << InvertLetterCase(ch1) << "\' ";
+	cout << " Count = " << CountLetter(st1, ch1, false);
+
+	return 0;
+}
+-----------------------------------------
+#32
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+char ReadChar()
+{
+	char ch1;
+	cout << "enter a character"<<endl;
+	cin >> ch1;
+	return ch1;
+}
+bool IsVowel(char ch1)
+{
+	ch1 = tolower(ch1);
+
+	return ((ch1 == 'a') || (ch1 == 'e') || (ch1 == 'i') || (ch1 == 'o') || (ch1 == 'u'));
+}
+
+int main()
+{
+	char ch1 = ReadChar();
+
+	if (IsVowel(ch1))
+		cout << "YES Letter \'" << ch1 << "\' is vowel"<<endl;
+	else
+		cout << "NO Letter \'" << ch1 << "\' is not vowel"<<endl;
+
+	return 0;
+}
+-----------------------------------------
+#33
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string st1;
+	cout << "enter ur string "<<endl;
+	getline(cin, st1);
+	return st1;
+}
+bool IsVowel(char ch1)
+{
+	ch1 = tolower(ch1);
+
+	return ((ch1 == 'a') || (ch1 == 'e') || (ch1 == 'i') || (ch1 == 'o') || (ch1 == 'u'));
+}
+int CountVowels(string st1) {
+	int counter=0;
+	for (int i = 0; i < st1.length(); i++) {
+		if (IsVowel(st1[i]))
+			counter++;
+	}
+	return counter;
+}
+int main()
+{
+	string st1 = ReadString();
+
+	cout << "number of vowels : " << CountVowels(st1) << endl;
+
+	return 0;
+}
+-----------------------------------------
+#34
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string st1;
+	cout << "enter ur string "<<endl;
+	getline(cin, st1);
+	return st1;
+}
+bool IsVowel(char ch1)
+{
+	ch1 = tolower(ch1);
+
+	return ((ch1 == 'a') || (ch1 == 'e') || (ch1 == 'i') || (ch1 == 'o') || (ch1 == 'u'));
+}
+void PrintVowels(string st1 ){
+	cout << "vowels in string : ";
+	for (int i = 0; i <st1.length(); i++)
+	{
+		if (IsVowel(st1[i]))
+			cout << st1[i]<<"	";
+
+	}
+}
+int main()
+{
+	string st1 = ReadString();
+	PrintVowels(st1);
+
+	return 0;
+}
+-----------------------------------------
+#35
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string st1;
+	cout << "enter ur string "<<endl;
+	getline(cin, st1);
+	return st1;
+}
+
+void PrintEachWordInLin(string st1 ){
+	string delimiter = " ";
+
+	cout << "ur string wrod  "<<endl;
+	int pos = 0;
+	string sword;
+
+	while ((pos = st1.find(delimiter)) != std::string::npos)
+	{
+		sword = st1.substr(0, pos);
+		if (sword != "") {
+			cout << sword << endl;
+		}
+
+
+		st1.erase(0, pos + delimiter.length());
+	}
+	
+
+	if (st1 != "") {
+		
+			cout << st1 << endl;
+	}
+}
+int main()
+{
+
+	PrintEachWordInLin(ReadString());
+
+	return 0;
+}
+-----------------------------------------
+#36
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string ReadString()
+{
+	string st1;
+	cout << "enter ur string "<<endl;
+	getline(cin, st1);
+	return st1;
+}
+
+short CountWords(string S1)
+{
+    string delim = " ";
+    short Counter = 0;
+    short pos = 0;
+    string sWord;
+
+    while ((pos = S1.find(delim)) != std::string::npos)
+    {
+        sWord = S1.substr(0, pos);
+        if (sWord != "")
+        {
+            Counter++;
+        }
+        S1.erase(0, pos + delim.length());
+    }
+    if (S1 != "")
+    {
+        Counter++;
+    }
+    return Counter;
+}
+
+int main()
+{
+    string st1 = ReadString();
+    cout<<"the number in ur string : " << CountWords(st1);
+	return 0;
+}
+-----------------------------------------
+#37
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+string ReadString()
+{
+    string st1;
+    cout << "enter ur string " << endl;
+    getline(cin, st1);
+    return st1;
+}
+
+vector<string> SplitString(string st1, string delim) {
+    vector<string> vstring;
+    short pos = 0;
+    string sWord;
+    while ((pos = st1.find(delim)) != string::npos)
+    {
+        sWord = st1.substr(0, pos);
+        if (sWord != "") {
+            vstring.push_back(sWord);
+        }
+        st1.erase(0, pos + delim.length());
+    }
+    if (st1 != "") {
+        vstring.push_back(st1);
+    }
+    return vstring;
+}
+
+int main()
+{
+    vector<string> vstring;
+    vstring = SplitString(ReadString(), " ");
+    cout << "tokens = " << vstring.size() << endl;
+    for (string& s : vstring) {
+        cout << s << endl;
+    }
+    return 0;
+}
+-----------------------------------------
+#38
+#include <iostream>
+#include <string>
+using namespace std;
+
+string TrimLeft(string st1)
+{
+	for (short i = 0; i < st1.length(); i++)
+	{
+		if (st1[i] != ' ')
+		{
+			return st1.substr(i, st1.length() - i);
+		}
+	}
+	return "";
+}
+string TrimRight(string st1)
+{
+	for (short i = st1.length() - 1; i >= 0; i--)
+	{
+		if (st1[i] != ' ')
+		{
+			return st1.substr(0, i + 1);
+		}
+	}
+	return "";
+}
+string Trim(string st1)
+{
+	return (TrimLeft(TrimRight(st1)));
+}
+int main()
+{
+	string st1 = " Mohammed Amin Abdllah";
+	cout << "\nString = " << st1;
+	cout << "\nTrim Left = " << TrimLeft(st1);
+	cout << "\nTrim Right = " << TrimRight(st1);
+	cout << "\nTrim = " << Trim(st1);
+
+	return 0;
+}
+-----------------------------------------
+#39
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string JoinString(vector<string> vString, string Delim)
+{
+	string S1 = "";
+	for (string& s : vString)
+	{
+		S1 = S1 + s + Delim;
+	}
+	return S1.substr(0, S1.length() - Delim.length());
+}
+int main()
+{
+	vector<string> vString = { "Mohammed","Ali","Amin" };
+	cout << "Vector after join \n";
+	cout << JoinString(vString, "&");
+
+	return 0;
+}
+-----------------------------------------
+#40
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string JoinString(vector<string> vString, string Delim)
+{
+	string S1 = "";
+	for (string& s : vString)
+	{
+		S1 = S1 + s + Delim;
+	}
+	return S1.substr(0, S1.length() - Delim.length());
+}
+string JoinString(string arrString[], short Length, string Delim)
+{
+	string S1 = "";
+	for (short i = 0; i < Length; i++)
+	{
+		S1 = S1 + arrString[i] + Delim;
+	}
+	return S1.substr(0, S1.length() - Delim.length());
+}
+
+int main()
+{
+	vector<string> vString = { "Mohammed","Ali","Amin" };
+	string arraystring[] = { "Mohammed","Ali","Amin" };
+	cout << "Vector after join \n";
+	cout << JoinString(vString, "&");
+
+	cout << endl;
+	cout << endl;
+
+	cout << "array after join \n";
+	cout << JoinString(arraystring,3,"&");
+
+	return 0;
+}
